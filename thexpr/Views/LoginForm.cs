@@ -16,5 +16,11 @@ namespace thexpr.Views
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine(input_username.Text);
+            Console.WriteLine(input_password.Text);
+        }
     }
 }
