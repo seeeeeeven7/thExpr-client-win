@@ -4,7 +4,7 @@ using System.IO;
 using System.Net;
 using System.Net.Http;
 
-namespace thexpr.Utility
+namespace ThExpr.Utility
 {
     class NetworkUtility
     {
