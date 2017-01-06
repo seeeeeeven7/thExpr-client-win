@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 
 namespace ThExpr.Utility
 {
@@ -46,14 +47,23 @@ namespace ThExpr.Utility
             }
         }
 
-        public static string GetAsync(string uri)
+        public static HttpResponseMessage GetAsync(string uri)
         {
-            string requestUrl = Properties.Settings.Default["ApiUrl"] + "/" + Properties.Settings.Default["IdString"] + "/" + uri;
+            string requestUrl = SettingsUtility.ApiUrl + uri;
+            string username = SettingsUtility.Basic_Username;
+            string password = SettingsUtility.Basic_Password;
             Console.Out.WriteLine(requestUrl);
+            Console.Out.WriteLine(username);
+            Console.Out.WriteLine(password);
             using (var client = new HttpClient())
             {
-                var response = client.GetAsync(requestUrl).Result;
-                return response.Content.ReadAsStringAsync().Result;
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
+                    "Basic",
+                    Convert.ToBase64String(
+                        System.Text.ASCIIEncoding.ASCII.GetBytes(string.Format("{0}:{1}", username, password))
+                    )
+                );
+                return client.GetAsync(requestUrl).Result;
             }
         }
     }

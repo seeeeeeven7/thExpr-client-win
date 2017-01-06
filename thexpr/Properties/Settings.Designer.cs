@@ -34,5 +34,38 @@ namespace ThExpr.Properties {
                 this["CurrentUser"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:8082/api/")]
+        public string ApiUrl {
+            get {
+                return ((string)(this["ApiUrl"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Basic_Username {
+            get {
+                return ((string)(this["Basic_Username"]));
+            }
+            set {
+                this["Basic_Username"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Basic_Password {
+            get {
+                return ((string)(this["Basic_Password"]));
+            }
+            set {
+                this["Basic_Password"] = value;
+            }
+        }
     }
 }

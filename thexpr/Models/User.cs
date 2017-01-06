@@ -8,5 +8,6 @@ namespace ThExpr.Models
 {
     class User
     {
+        public Int64 id;
     }
 }
